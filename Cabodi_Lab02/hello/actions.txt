@@ -1,0 +1,29 @@
+created file kern/main/hello.c:
+#include <types.h>
+#include <lib.h>
+void hello(void);
+void hello(void) {
+  kprintf("Hello from me!\n");
+}
+
+
+added in kern/main/main.c:
+#include "opt-hello.h"
+#if OPT_HELLO  
+void hello(void);
+#endif
+
+and in kmain function:
+#if OPT_HELLO  
+  hello();
+#endif
+
+added in kern/conf/conf.kern:
+defoption hello
+optfile hello main/hello.c
+
+created file kern/conf/HELLO as a copy of DUMBVM
+
+added in kern/conf/HELLO:
+options hello
+
