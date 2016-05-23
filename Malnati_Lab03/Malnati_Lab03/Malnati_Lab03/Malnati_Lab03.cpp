@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 
 	std::vector<std::string> parts;
 	// main loop
-	while(1) {
+	while (1) {
 		std::cout << "Insert a sentence" << std::endl;
 		std::string line;
 		// read a line from console
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
 }
 
 void searchAll(std::vector<std::string> parts) {
-	
+
 	std::vector<std::future<web::json::value>> futures;
 	std::vector<web::json::object> resultsObj;
 
@@ -76,12 +76,12 @@ void searchAll(std::vector<std::string> parts) {
 		catch (const std::exception& e) {
 			std::cout << e.what();
 		}
-		
+
 	};
 	//sort
 	// sort on the size ascending of the result page
 	std::sort(resultsObj.begin(), resultsObj.end(), [](web::json::object a, web::json::object b) {
-		return a[U("size")].as_integer() < b[U("size")].as_integer(); 
+		return a[U("size")].as_integer() < b[U("size")].as_integer();
 	});
 
 	// print out something (size and title of the result)
@@ -115,8 +115,8 @@ web::json::value search(std::string str) {
 
 	pplx::task<web::json::value> requestTask = client.request(methods::GET, builder.to_string())
 
-	// Handle response headers arriving.
-	.then([=](http_response response) {
+		// Handle response headers arriving.
+		.then([=](http_response response) {
 		//printf("Received response status code:%u\n", response.status_code());
 
 		return response.extract_json();
@@ -134,7 +134,7 @@ web::json::value search(std::string str) {
 	std::cout << res;
 
 	return v;
-	
+
 	// if some exception (e.g. timeout expired) is raised, it will be captured in searchAll loop
 }
 
@@ -162,65 +162,65 @@ std::string ws2s(const std::wstring& s) {
 {
   "batchcomplete": "",
   "continue": {
-    "sroffset": 10,
-    "continue": "-||"
+	"sroffset": 10,
+	"continue": "-||"
   },
   "query": {
-    "searchinfo": {
-      "totalhits": 33078
-    },
-    "search": [
-      {
-        "ns": 0,
-        "title": "Prova",
-        "size": 893
-      },
-      {
-        "ns": 0,
-        "title": "Prova (diritto)",
-        "size": 2316
-      },
-      {
-        "ns": 0,
-        "title": "Prova speciale",
-        "size": 1352
-      },
-      {
-        "ns": 0,
-        "title": "Mezzo di ricerca della prova",
-        "size": 924
-      },
-      {
-        "ns": 0,
-        "title": "Sven Nys",
-        "size": 28561
-      },
-      {
-        "ns": 0,
-        "title": "Prova a incastrarmi - Find Me Guilty",
-        "size": 2552
-      },
-      {
-        "ns": 0,
-        "title": "La prova",
-        "size": 875
-      },
-      {
-        "ns": 0,
-        "title": "Affidamento in prova al servizio sociale",
-        "size": 4180
-      },
-      {
-        "ns": 0,
-        "title": "Nazionale di ciclismo su strada dell'Italia",
-        "size": 76436
-      },
-      {
-        "ns": 0,
-        "title": "Prova (ordinamento penale italiano)",
-        "size": 13079
-      }
-    ]
+	"searchinfo": {
+	  "totalhits": 33078
+	},
+	"search": [
+	  {
+		"ns": 0,
+		"title": "Prova",
+		"size": 893
+	  },
+	  {
+		"ns": 0,
+		"title": "Prova (diritto)",
+		"size": 2316
+	  },
+	  {
+		"ns": 0,
+		"title": "Prova speciale",
+		"size": 1352
+	  },
+	  {
+		"ns": 0,
+		"title": "Mezzo di ricerca della prova",
+		"size": 924
+	  },
+	  {
+		"ns": 0,
+		"title": "Sven Nys",
+		"size": 28561
+	  },
+	  {
+		"ns": 0,
+		"title": "Prova a incastrarmi - Find Me Guilty",
+		"size": 2552
+	  },
+	  {
+		"ns": 0,
+		"title": "La prova",
+		"size": 875
+	  },
+	  {
+		"ns": 0,
+		"title": "Affidamento in prova al servizio sociale",
+		"size": 4180
+	  },
+	  {
+		"ns": 0,
+		"title": "Nazionale di ciclismo su strada dell'Italia",
+		"size": 76436
+	  },
+	  {
+		"ns": 0,
+		"title": "Prova (ordinamento penale italiano)",
+		"size": 13079
+	  }
+	]
   }
 }
 */
