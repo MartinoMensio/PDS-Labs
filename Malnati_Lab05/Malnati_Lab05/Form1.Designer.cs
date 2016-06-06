@@ -112,7 +112,7 @@
             this.gmap.LevelsKeepInMemmory = 5;
             this.gmap.Location = new System.Drawing.Point(3, 3);
             this.gmap.MarkersEnabled = true;
-            this.gmap.MaxZoom = 15;
+            this.gmap.MaxZoom = 20;
             this.gmap.MinZoom = 2;
             this.gmap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
             this.gmap.Name = "gmap";
@@ -215,6 +215,7 @@
             this.buttonCerca.TabIndex = 1;
             this.buttonCerca.Text = "Cerca";
             this.buttonCerca.UseVisualStyleBackColor = true;
+            this.buttonCerca.Click += new System.EventHandler(this.buttonCerca_Click);
             // 
             // tableLayoutPanelFormPrincipaleLeft
             // 
